@@ -1,0 +1,97 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "core",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "ZOO_WITH_BITCASK": "ON",
+                "ZOO_WITH_FS": "ON",
+                "ZOO_WITH_SPIDER": "ON",
+                "ZOO_WITH_SQUID": "ON"
+            }
+        },
+        {
+            "name": "debug",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "release",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "shared",
+            "hidden": true,
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": "True"
+            }
+        },
+        {
+            "name": "static",
+            "hidden": true,
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": "False"
+            }
+        },
+        {
+            "name": "gcc",
+            "hidden": true,
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "gcc-shared-debug",
+            "displayName": "GCC Shared Debug",
+            "inherits": [
+                "core",
+                "gcc",
+                "shared",
+                "debug"
+            ]
+        },
+        {
+            "name": "gcc-static-debug",
+            "displayName": "GCC Static Debug",
+            "inherits": [
+                "core",
+                "gcc",
+                "static",
+                "debug"
+            ]
+        },
+        {
+            "name": "gcc-shared-release",
+            "displayName": "GCC Shared Release",
+            "inherits": [
+                "core",
+                "gcc",
+                "shared",
+                "release"
+            ]
+        },
+        {
+            "name": "gcc-static-release",
+            "displayName": "GCC Static Release",
+            "inherits": [
+                "core",
+                "gcc",
+                "static",
+                "release"
+            ]
+        }
+    ]
+}

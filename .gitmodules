@@ -1,0 +1,3 @@
+[submodule "subdir/zoo"]
+	path = subdir/zoo
+	url = https://github.com/patrick-rotsaert/zoo.git
